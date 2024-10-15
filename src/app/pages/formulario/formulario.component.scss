@@ -1,0 +1,20 @@
+.custom-card {
+  background-color: #007bff; /* Fundo azul */
+
+  width: 100%; /* Ocupar largura total */
+  border: none; /* Remover borda */
+  padding: 2rem; /* Padding maior */
+}
+
+.custom-card input {
+  background-color: #f0f8ff; /* Fundo claro para os inputs */
+  font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+}
+.custom-card .p-card-header {
+  background-color: #0056b3; /* Fundo mais escuro no cabeçalho */
+  font-size: 1.5rem; /* Tamanho maior para o texto do cabeçalho */
+  color: white;
+}
+.btn-light {
+  color: #007bff; /* Texto do botão em azul */
+}

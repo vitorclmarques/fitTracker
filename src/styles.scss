@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+// Declaração de variáveis de cores globais
+$primary-color: #1F0078;
+$secondary-color: #ffffff;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$white-color: #ffffff;
+$black-color: #000000;
+
+// Exemplo de uso
+body {
+  background-color: $light-color;
+  color: $dark-color;
+}
+
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";

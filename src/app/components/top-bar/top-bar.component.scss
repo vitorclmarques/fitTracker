@@ -1,0 +1,21 @@
+// Estilo da navbar personalizada
+.custom-navbar {
+  padding: 20px 0; // Aumenta a altura da barra
+  background-color:#1F0078; // Cor de fundo (opcional)
+
+  .navbar-brand {
+    font-size: 1.5rem; // Aumenta o tamanho da marca
+    color:white ;
+  }
+
+  .nav-link {
+    font-size: 1.25rem; // Aumenta o tamanho da fonte dos links
+    padding: 10px 15px; // Ajusta o espaçamento dos links
+    transition: color 0.3s ease; // Animação para hover
+    color: white;
+
+    &:hover {
+      color: #000; // Cor do link ao passar o mouse (opcional)
+    }
+  }
+}
