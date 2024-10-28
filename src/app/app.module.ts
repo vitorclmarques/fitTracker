@@ -12,6 +12,12 @@ import { FormularioComponent } from './pages/formulario/formulario.component';
 import { FormularioContentComponent } from './pages/formulario/formulario-content/formulario-content.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DashboardMatriculasPlanosComponent } from './components/dashboard-matriculas-planos/dashboard-matriculas-planos.component';
+import { ChartModule } from 'primeng/chart';
+import { DashboardAlunosComponent } from './components/dashboard-alunos/dashboard-alunos.component';
+import { ProgressBarModule } from 'primeng/progressbar';
+
 
 @NgModule({
   declarations: [
@@ -20,15 +26,18 @@ import { LoginComponent } from './pages/login/login.component';
     HomeComponent,
     FormularioComponent,
     FormularioContentComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    DashboardMatriculasPlanosComponent,
+    DashboardAlunosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule,
-    InputTextModule,
-    ButtonModule,
-    FormsModule
+    FormsModule,
+    ChartModule,
+    ProgressBarModule
+
   ],
   providers: [
     provideClientHydration()

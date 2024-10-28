@@ -1,0 +1,72 @@
+@import '../../../../src/styles.scss';
+
+/* Remova qualquer margem e padding padrão */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  z-index: 1; /* Assegure que o conteúdo esteja sobre outros elementos */
+  position: relative;
+}
+
+/* Estilos da Sidebar */
+.sidebar {
+  width: 100px; /* Sidebar mais estreita para foco nos ícones */
+  background-color: $primary-color;
+  padding: 15px 0; /* Padding vertical para centralizar os ícones */
+  color: white;
+  height: 100vh; /* Garante que a sidebar ocupe toda a altura */
+  position: fixed; /* Fixando a sidebar */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza os ícones verticalmente */
+  align-items: center; /* Centraliza os ícones horizontalmente */
+}
+
+/* Lista de Ícones */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo de cada item da lista */
+.sidebar ul li {
+  margin: 50px 0; /* Espaçamento vertical entre os ícones */
+}
+
+/* Links dos Ícones */
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar ul li a.active {
+  color: #f1f1f1;
+}
+
+/* Estilo dos Ícones */
+i {
+  font-size: 2.5rem; /* Tamanho dos ícones */
+  color: white; /* Cor branca para os ícones */
+}
+
+.sidebar ul li a:hover i {
+  color: #f1f1f1; /* Cor ao passar o mouse */
+}
+
+/* Estilo do conteúdo principal */
+.content {
+  margin-left: 80px; /* Deixe um espaço para a sidebar */
+  padding: 20px;
+  flex: 1;
+  background-color: $secondary-color;
+}

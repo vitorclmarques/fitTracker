@@ -11,12 +11,26 @@ $dark-color: #343a40;
 $white-color: #ffffff;
 $black-color: #000000;
 
+:root {
+  --primary-color: #6A7CDB; /* Cor personalizada */
+  --primary-color-light: #9AAEFB; /* Versão mais clara */
+  --blue-500: #1F0078; /* Cor amarela personalizada */
+  --blue-300:#040e41;/* Cor do texto */
+  --yellow-500: #FBC02D; /* Cor amarela personalizada */
+  --green-500: #4CAF50; /* Cor verde personalizada */
+  --yellow-400: #FFEB3B; /* Hover amarelo */
+  --green-400: #66BB6A; /* Hover verde */
+  --text-color: #333333; /* Cor do texto */
+}
+
+
 // Exemplo de uso
 body {
-  background-color: $light-color;
+
   color: $dark-color;
 }
 
 
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";

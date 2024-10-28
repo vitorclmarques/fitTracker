@@ -1,19 +1,21 @@
 @import '../../../../../src/styles.scss';
 
-
+.body-color{
+  background-color: $primary-color;
+}
 .cadastro-container {
   max-width: 400px;
   margin: 50px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: $primary-color;
+  background-color: $secondary-color;
 
 }
 
 h2 {
   text-align: center;
-  color: $secondary-color;
+  color: $black-color;
 }
 
 .form-group {
@@ -23,7 +25,7 @@ h2 {
 label {
   display: block;
   margin-bottom: 5px;
-  color: $secondary-color;
+  color: $black-color;
 }
 
 input {
@@ -31,13 +33,13 @@ input {
   padding: 8px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 button {
   width: 100%;
   padding: 10px;
-  background-color: #1769aa;
+  background-color: $primary-color;
   color: $secondary-color;
   border: none;
   border-radius: 5px;
@@ -55,4 +57,7 @@ button:disabled {
 .error-message {
   color: red;
   font-size: 12px;
+}
+a{
+  text-decoration: none;
 }

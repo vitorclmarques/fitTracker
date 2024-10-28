@@ -1,6 +1,6 @@
 
-<div class="d-flex justify-content-center align-items-center vh-100">
-  <div class="card p-4" style="width: 100%; max-width: 400px; background-color: #1F0078;">
+<div class="d-flex justify-content-center align-items-center vh-100 body-color">
+  <div class="card p-4" style="width: 100%; max-width: 400px; background-color: #ffffff;">
     <h2 class="text-center mb-4">Cadastro de Usuário</h2>
     <form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
 
@@ -15,7 +15,7 @@
         />
       </div>
 
-      <div class="mb-3">
+      <div class="mb-4">
         <label for="senha" class="form-label">Senha:</label>
         <input
           type="password"
@@ -26,9 +26,12 @@
         />
       </div>
 
-      <button type="submit" class="btn w-100" >
+      <button type="submit" class="btn w-100 mb-4" >
         Entrar
       </button>
+
+      <label class="form-label mb-4">Não possui uma conta? <a routerLink="/cadastro">Cadastrar-se</a></label>
+
     </form>
   </div>
 </div>

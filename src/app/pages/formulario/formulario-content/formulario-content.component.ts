@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-content',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './formulario-content.component.scss'
 })
 export class FormularioContentComponent {
+constructor(private router:Router){
+
+}
+
   usuario = {
     codigoPersonal: '',
     nome: '',
@@ -18,5 +23,9 @@ export class FormularioContentComponent {
     if (this.usuario.nome && this.usuario.email && this.usuario.senha) {
       console.log('Usuário cadastrado:', this.usuario);
       // Aqui você pode enviar os dados do usuário para o servidor
-    }}
+    }
+    this.router.navigate(['/dashboard'])
+  }
+
+
 }

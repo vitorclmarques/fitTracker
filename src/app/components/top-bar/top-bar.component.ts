@@ -7,15 +7,11 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrl: './top-bar.component.scss'
 })
 export class TopBarComponent implements OnInit {
-  mostrarLogin: boolean = false;
+
 
   constructor(private route: Router) {}
 
   ngOnInit(): void {
-      this.route.events.subscribe(event => {
-        if(event instanceof NavigationEnd){
-          this.mostrarLogin = this.route.url === '/';
-        }
-      })
+
   }
 }
