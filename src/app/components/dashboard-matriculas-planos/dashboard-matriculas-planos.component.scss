@@ -1,0 +1,91 @@
+.container{
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+  flex-direction: column;
+  width: 1200px;
+}
+
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+
+}
+
+.card-maior {
+  width: 750px;
+  height: 450px;
+  border-radius: 5px;
+  background-color: #D9D9D9;
+  position: relative;
+  top: 25px;
+  flex-direction: column;
+
+  .titulo {
+    position: relative;
+    top: 30px;
+    font-weight: 700;
+  }
+
+  .grafico {
+    width: 450px;
+    position: relative;
+    left: 45px;
+  }
+}
+
+
+.cards-pequenos-medio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-medio {
+  width: 710px;
+  height: 188px;
+  border-radius: 5px;
+  background-color: #D9D9D9;
+  position: relative;
+  top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  color:#0029FF ;
+  h3{
+    font-size: 40px;
+    font-weight: 700;
+
+  }
+
+  h4{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  &.card-menor-ganhos {
+    color: #03bc15;
+    margin-bottom: 61px;
+  }
+  // Posiciona o card-medio abaixo dos cards menores
+}
+
+.grafico-matriculas{
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  h3{
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

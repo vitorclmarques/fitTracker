@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="tabela-aluno">
+    <h1 class="text-center">Alunos</h1>
+
+    <!-- Container Responsivo -->
+    <div class="card col-12 col-md-10 col-lg-8" style="color: black;">
+      <p-table [value]="alunos" dataKey="id" [tableStyle]="{ 'min-width': '100%' }">
+
+        <!-- Cabeçalho da Tabela -->
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Plano</th>
+            <th>Status</th>
+            <th>Aulas</th>
+            <th></th>
+          </tr>
+        </ng-template>
+
+        <!-- Corpo da Tabela -->
+        <ng-template pTemplate="body" let-aluno>
+          <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.plano.nome }}</td>
+            <td>
+              <p-tag [value]="aluno.status" [severity]="getSeverity(aluno.status)"></p-tag>
+            </td>
+            <!-- <td>{{ aluno.contato }}</td>
+            <td>{{ aluno.expiracao | date: 'dd/MM/yyyy' }}</td> -->
+            <td>
+              <ul>
+                <li *ngFor="let aula of aluno.aulas">{{ aula.dia }} - {{ aula.horario }}</li>
+              </ul>
+            </td>
+            <td>
+              <button pButton pRipple type="button" icon="pi pi-eye
+              " class="p-button-rounded p-button-info me-2 "
+                (click)="onEdit(aluno)" title="Detalhar" style="border-radius: 5px;">
+
+              </button>
+
+              <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                (click)="onDelete(aluno)" title="Remover" style="border-radius: 5px;">
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+
+      </p-table>
+    </div>
+  </div>
+
+
+  <div class="tabela-plano">
+    <h1 class="text-center">Planos</h1>
+
+    <!-- Container Responsivo -->
+    <div class="card col-12 col-md-10 col-lg-8" style="color: black;">
+      <p-table [value]="planos" dataKey="nome" [tableStyle]="{ 'min-width': '100%' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 20%">Plano</th>
+            <th style="width: 50%">Especificação</th>
+            <th style="width: 30%"></th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-plano>
+          <tr>
+            <td>{{ plano.nome }}</td>
+            <td>{{ plano.especificacoes }}</td>
+            <td>
+              <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-info me-2" (click)="onEdit(plano)" title="Editar" style="border-radius: 5px;"></button>
+              <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="onDelete(plano)" title="Remover" style="border-radius: 5px;"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

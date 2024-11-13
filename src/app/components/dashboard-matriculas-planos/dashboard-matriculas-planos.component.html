@@ -1,7 +1,26 @@
 <div class="container">
-  <div class="container-grafico d-flex justify-content-center align-items-center">
-    <div class="grafico-container">
-      <p-chart type="doughnut" [data]="data" [options]="options" />
+  <div class="cards-container">
+    <div class="card-maior d-flex justify-content-center align-items-center">
+      <p class="titulo">Total de matrículas</p>
+      <div class="grafico">
+        <p-chart type="doughnut" [data]="data" [options]="options"></p-chart>
+      </div>
     </div>
-</div>
+
+    <div class="cards-pequenos-medio">
+      <div class="card-medio card-menor-ganhos">
+        <h3>R$ 1985</h3>
+         <h4>Ganhos do mês</h4>
+      </div>
+      <div class="card-medio">
+        <h3>Quantidade de aluno</h3>
+        <h4>6/100</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="grafico-matriculas">
+    <h3 class="mb-4">Matriculas meses</h3>
+    <p-chart type="bar" [data]="data2" [options]="options2" />
+  </div>
 </div>

@@ -24,7 +24,7 @@ constructor(private router:Router){
       console.log('Usuário cadastrado:', this.usuario);
       // Aqui você pode enviar os dados do usuário para o servidor
     }
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard/tabela-alunos'])
   }
 
 

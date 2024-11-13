@@ -10,10 +10,8 @@ export class DashboardMatriculasPlanosComponent {
   data: any;
   options: any;
 
-  alunos: number = 100;  // Quantidade atual de alunos
-totalAlunos: number = 150;  // Total necessário de alunos
-progressBarr: number = Math.floor((this.alunos / this.totalAlunos) * 100);
-
+  data2:any;
+  options2:any;
 
   constructor() {
     this.data = {
@@ -34,10 +32,42 @@ progressBarr: number = Math.floor((this.alunos / this.totalAlunos) * 100);
       plugins: {
         legend: {
           display: true,
-          position:'bottom' // Remove a legenda
+          position:'right' // Remove a legenda
         },
       },
     };
+
+    this.chartHorizontal();
+  }
+
+  chartHorizontal(){
+
+
+    this.data2 = {
+        labels: [   'Julho','Junho', 'Maio', 'Abril', 'Março', 'Fevereiro', 'Janeiro', ],
+        datasets: [
+            {
+                label: 'Alunos',
+                backgroundColor: ['#0029FF'],
+                data: [65, 59, 80, 81, 56, 55, 40]
+            }
+        ],
+
+
+    };
+
+    this.options2 = {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        aspectRatio: 0.8,
+        plugins: {
+            legend: {
+                display:true,
+                position:'top'
+            }
+        }
+    };
+
   }
 
 
