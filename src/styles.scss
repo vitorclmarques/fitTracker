@@ -30,6 +30,12 @@ body {
   color: $dark-color;
 }
 
+::ng-deep .p-dialog {
+  position: fixed;
+  z-index: 1050 !important; /* Certifique-se de que este número seja alto */
+}
+
+
 
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";

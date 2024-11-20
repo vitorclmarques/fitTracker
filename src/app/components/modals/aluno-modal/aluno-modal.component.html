@@ -1,0 +1,24 @@
+<div class="modal-overlay" *ngIf="visible">
+  <div class="modal-content">
+    <h2>Editar Aluno</h2>
+    <form (ngSubmit)="save()">
+      <label for="nome">Nome:</label>
+      <input id="nome" [(ngModel)]="aluno.nome" name="nome" required />
+
+      <label for="plano">Plano:</label>
+      <input id="plano" [(ngModel)]="aluno.plano.nome" name="plano" required />
+
+      <label for="status">Status:</label>
+      <select id="status" [(ngModel)]="aluno.status" name="status" required>
+        <option value="Ativo">Ativo</option>
+        <option value="Expirando">Expirando</option>
+        <option value="Vencido">Vencido</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="submit" class="save">Salvar</button>
+        <button type="button" class="cancel" (click)="close()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

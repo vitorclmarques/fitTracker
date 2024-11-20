@@ -18,7 +18,7 @@ import { FormularioComponent } from './pages/formulario/formulario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 
-import { DialogModule } from 'primeng/dialog';
+
 import { RippleModule } from 'primeng/ripple';
 
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -30,6 +30,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -39,6 +40,9 @@ import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 
 import { InputNumberModule } from 'primeng/inputnumber';
+import { AlunoModalComponent } from './components/modals/aluno-modal/aluno-modal.component';
+import { PlanoModalComponent } from './components/modals/plano-modal/plano-modal.component';
+import { ModalComponent } from './components/modals/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DashboardComponent,
     DashboardMatriculasPlanosComponent,
     TabelaAlunosComponent,
+    AlunoModalComponent,
+    PlanoModalComponent,
+    ModalComponent,    // Declare o modal de Aluno
 
   ],
   imports: [
@@ -77,6 +84,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     InputTextModule,
     FormsModule,
     InputNumberModule,
+
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

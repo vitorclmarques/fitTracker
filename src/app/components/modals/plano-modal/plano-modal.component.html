@@ -1,0 +1,35 @@
+<div class="modal-overlay" *ngIf="visible">
+  <div class="modal-content">
+    <h2>Editar Plano</h2>
+    <form (ngSubmit)="save()">
+      <div>
+        <label for="nome">Nome:</label>
+        <input id="nome" [(ngModel)]="plano.nome" name="nome" required />
+      </div>
+      <div>
+        <label for="especificacoes">Especificações:</label>
+        <textarea
+          id="especificacoes"
+          [(ngModel)]="plano.especificacoes"
+          name="especificacoes"
+          required
+        ></textarea>
+      </div>
+      <div>
+        <label for="preco">Preço:</label>
+        <input
+          id="preco"
+          [(ngModel)]="plano.preco"
+          name="preco"
+          type="number"
+          required
+        />
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="save">Salvar</button>
+        <button type="button" class="cancel" (click)="close()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

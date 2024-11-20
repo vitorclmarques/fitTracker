@@ -3,6 +3,7 @@ import { SelectItem } from 'primeng/api';
 import { Aluno } from '../../interface/aluno';
 import { MockService } from '../../mock/mock-aluno-service';
 import { Plano } from '../../interface/plano';
+import { ModalField } from '../../interface/modal';
 
 @Component({
   selector: 'app-tabela-alunos',
@@ -11,41 +12,64 @@ import { Plano } from '../../interface/plano';
 })
 export class TabelaAlunosComponent implements OnInit {
   alunos: Aluno[] = [];
-  planos: Plano[] = []
+  planos: Plano[] = [];
   statuses: SelectItem[] = [];
   clonedAlunos: { [s: string]: Aluno } = {};
   data: any;
   options: any;
+
+  visibleAluno: boolean = false;
+  visiblePlano: boolean = false;
+
+  visibleAlunoCadastro: boolean = false;
+
+
+  alunoSelecionado: Aluno | null = null;
+  planoSelecionado: Plano | null = null;
 
   constructor(private mockService: MockService) {}
 
   ngOnInit() {
     this.mockService.getAlunos().then((data) => {
       this.alunos = data;
-      console.log(this.alunos)
     });
     this.mockService.getPlanos().then((data) => {
       this.planos = data;
-
     });
   }
 
-  onRowEditInit(aluno: Aluno) {
-    this.clonedAlunos[aluno.id] = { ...aluno };
+  openAlunoModal() {
+    this.visibleAlunoCadastro = true;
+  }
+  closeModal() {
+    this.visibleAlunoCadastro = false;
   }
 
-  onRowEditSave(aluno: Aluno) {
-    delete this.clonedAlunos[aluno.id];
+  saveAluno(aluno: Aluno) {
+    aluno.id = String(this.alunos.length + 1); // Gera um ID fictício para o novo aluno
+    this.alunos.push(aluno); // Adiciona o aluno à lista
+    this.visibleAlunoCadastro = false; // Fecha o modal após salvar
   }
 
-  onRowEditCancel(aluno: Aluno, index: number) {
-    this.alunos[index] = this.clonedAlunos[aluno.id];
-    delete this.clonedAlunos[aluno.id];
+  showAlunoDialog(aluno: Aluno) {
+    this.alunoSelecionado = { ...aluno }; // Clona o aluno para edição
+    this.visibleAluno = true;
   }
 
-  onEdit(aluno: Aluno) {
-    // Lógica para iniciar o modo de edição
-    this.onRowEditInit(aluno);
+  onSaveAluno(aluno: Aluno) {
+    this.alunos.push({ ...aluno, id: Date.now().toString() });
+    this.visibleAluno = false;
+  }
+
+  showPlanoDialog(plano: Plano) {
+    this.planoSelecionado = { ...plano }; // Clona o plano para edição
+    this.visiblePlano = true;
+  }
+
+  onSavePlano(plano: Plano) {
+    const index = this.planos.findIndex((p) => p.nome === plano.nome);
+    if (index !== -1) this.planos[index] = plano; // Atualiza os dados
+    this.visiblePlano = false;
   }
 
   onDelete(aluno: Aluno) {
@@ -66,4 +90,7 @@ export class TabelaAlunosComponent implements OnInit {
     }
   }
 
+  showDialog() {
+    this.visiblePlano = true;
+  }
 }

@@ -1,0 +1,62 @@
+<div *ngIf="visible" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Cadastro Aluno</h2>
+      <button class="close-btn" (click)="close()">×</button>
+    </div>
+
+    <form (ngSubmit)="save()">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" pInputText [(ngModel)]="aluno.nome" name="nome" required placeholder="Digite o nome do aluno"/>
+      </div>
+
+      <div class="form-group">
+        <label for="contato">Contato</label>
+        <input id="contato" type="text" pInputText [(ngModel)]="aluno.contato" name="contato" required placeholder="Digite o contato do aluno"/>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" [(ngModel)]="aluno.status" name="status" required>
+          <option value="Ativo">Ativo</option>
+          <option value="Inativo">Inativo</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="expiracao">Expiração</label>
+        <input id="expiracao" type="date" [(ngModel)]="aluno.expiracao" name="expiracao" required/>
+      </div>
+
+      <!-- Seção para selecionar o plano -->
+      <div class="form-group">
+        <label for="plano">Plano</label>
+        <select id="plano" [(ngModel)]="aluno.plano" name="plano" >
+          <option >Gold</option>
+          <option >Silver</option>
+          <option >Bronze</option>
+        </select>
+      </div>
+
+      <!-- Formulário para adicionar aulas -->
+      <div class="form-group">
+        <h3>Aulas</h3>
+        <div class="aula-form">
+          <input type="text" [(ngModel)]="aula.dia" name="dia" placeholder="Dia da aula"  />
+          <input type="time" [(ngModel)]="aula.horario" name="horario"  />
+          <button type="button" (click)="addAula()">Adicionar Aula</button>
+        </div>
+
+        <ul>
+          <li *ngFor="let aula of aluno.aulas">{{ aula.dia }} - {{ aula.horario }}</li>
+        </ul>
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" [disabled]="!aluno.nome || !aluno.contato || !aluno.status || !aluno.expiracao || !aluno.plano">Salvar</button>
+        <button type="button" (click)="close()">Fechar</button>
+      </div>
+    </form>
+  </div>
+</div>

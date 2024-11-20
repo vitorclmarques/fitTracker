@@ -1,12 +1,20 @@
 <div class="container">
+  <!-- Tabela de Alunos -->
   <div class="tabela-aluno">
-    <h1 class="text-center">Alunos</h1>
+    <div class="title-section">
+      <h1>Alunos</h1>
+      <button  (click)="openAlunoModal()"> Cadastrar Aluno</button>
+    </div>
+    <app-modal
+    [visible]="visibleAlunoCadastro"
+    [aluno]="alunoSelecionado!"
+    [planos]="planos"
+    (saveAluno)="saveAluno($event)"
+    (closeModal)="closeModal()">
+    </app-modal>
 
-    <!-- Container Responsivo -->
-    <div class="card col-12 col-md-10 col-lg-8" style="color: black;">
+    <div class="card col-12 col-md-10 col-lg-8" style="color: black">
       <p-table [value]="alunos" dataKey="id" [tableStyle]="{ 'min-width': '100%' }">
-
-        <!-- Cabeçalho da Tabela -->
         <ng-template pTemplate="header">
           <tr>
             <th>Nome</th>
@@ -16,8 +24,6 @@
             <th></th>
           </tr>
         </ng-template>
-
-        <!-- Corpo da Tabela -->
         <ng-template pTemplate="body" let-aluno>
           <tr>
             <td>{{ aluno.nome }}</td>
@@ -25,57 +31,95 @@
             <td>
               <p-tag [value]="aluno.status" [severity]="getSeverity(aluno.status)"></p-tag>
             </td>
-            <!-- <td>{{ aluno.contato }}</td>
-            <td>{{ aluno.expiracao | date: 'dd/MM/yyyy' }}</td> -->
             <td>
               <ul>
                 <li *ngFor="let aula of aluno.aulas">{{ aula.dia }} - {{ aula.horario }}</li>
               </ul>
             </td>
             <td>
-              <button pButton pRipple type="button" icon="pi pi-eye
-              " class="p-button-rounded p-button-info me-2 "
-                (click)="onEdit(aluno)" title="Detalhar" style="border-radius: 5px;">
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-info me-2"
+                (click)="showAlunoDialog(aluno)"
+                title="Editar Aluno"
+              ></button>
 
-              </button>
-
-              <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                (click)="onDelete(aluno)" title="Remover" style="border-radius: 5px;">
-              </button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger"
+                (click)="onDelete(aluno)"
+                title="Remover"
+              ></button>
             </td>
           </tr>
         </ng-template>
-
       </p-table>
     </div>
   </div>
 
-
+  <!-- Tabela de Planos -->
   <div class="tabela-plano">
     <h1 class="text-center">Planos</h1>
-
-    <!-- Container Responsivo -->
-    <div class="card col-12 col-md-10 col-lg-8" style="color: black;">
+    <div class="card col-12 col-md-10 col-lg-8" style="color: black">
       <p-table [value]="planos" dataKey="nome" [tableStyle]="{ 'min-width': '100%' }">
         <ng-template pTemplate="header">
           <tr>
-            <th style="width: 20%">Plano</th>
-            <th style="width: 50%">Especificação</th>
-            <th style="width: 30%"></th>
+            <th>Plano</th>
+            <th>Especificação</th>
+            <th>Valor</th>
+            <th></th>
           </tr>
         </ng-template>
-
         <ng-template pTemplate="body" let-plano>
           <tr>
             <td>{{ plano.nome }}</td>
             <td>{{ plano.especificacoes }}</td>
+            <td>{{ plano.preco }} R$</td>
             <td>
-              <button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-info me-2" (click)="onEdit(plano)" title="Editar" style="border-radius: 5px;"></button>
-              <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="onDelete(plano)" title="Remover" style="border-radius: 5px;"></button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-info me-2"
+                (click)="showPlanoDialog(plano)"
+                title="Editar Plano"
+              ></button>
+
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger"
+                (click)="onDelete(plano)"
+                title="Remover"
+              ></button>
             </td>
           </tr>
         </ng-template>
       </p-table>
     </div>
   </div>
+
+  <app-aluno-modal
+  [visible]="visibleAluno"
+  [aluno]="alunoSelecionado!"
+  (saveAluno)="onSaveAluno($event)"
+  (closeModal)="visibleAluno = false"
+></app-aluno-modal>
+
+<app-plano-modal
+  [visible]="visiblePlano"
+  [plano]="planoSelecionado!"
+  (savePlano)="onSavePlano($event)"
+  (closeModal)="visiblePlano = false"
+></app-plano-modal>
+
 </div>

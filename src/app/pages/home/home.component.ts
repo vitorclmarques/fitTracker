@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  isModalVisible: boolean = false;
 
+  // Abre o modal
+  showModal() {
+    this.isModalVisible = true;
+  }
+
+  // Fecha o modal
+  closeModal() {
+    this.isModalVisible = false;
+  }
+
+  // Ação personalizada ao clicar em "Confirmar"
+  handleAction() {
+    console.log('Ação confirmada!');
+    this.closeModal();
+  }
 }
